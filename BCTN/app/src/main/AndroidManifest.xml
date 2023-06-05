@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.manager.techno">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TECHNO"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name="com.manager.thesunshine.activity.Test"
+            android:exported="true" /> <!-- màng hình chờ -->
+        <activity
+            android:name="com.manager.thesunshine.activity.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.manager.thesunshine.activity.SearchActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.manager.thesunshine.activity.XemDonActivity"
+            android:exported="true" /> <!-- <activity -->
+        <!-- android:name=".activity.XemDonActivity" -->
+        <!-- android:exported="false" /> -->
+        <activity
+            android:name="com.manager.thesunshine.activity.ThanhToanActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.manager.thesunshine.activity.ResetPassActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.manager.thesunshine.activity.DangNhapActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.manager.thesunshine.activity.DangKiActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.manager.thesunshine.activity.GioHangActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.manager.thesunshine.activity.ChiTietActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.manager.thesunshine.activity.SanPhamActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.manager.thesunshine.activity.MainActivity"
+            android:exported="true" />
+    </application>
+
+</manifest>

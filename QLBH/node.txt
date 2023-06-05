@@ -1,0 +1,20 @@
+- Các phần mềm cài đặt!
+- Xampp, subline text
+- Tạo các file (mô tả)
+	+> Public thư mực này chứa các file css, js, images, upload của cả backend và frontend
+		+Thư mực admin là chứa các file bên admin
+		+ Còn frontend là phần giao diện bên ngoài 
+	+> Thư mục admin! thư mục này chứa các file, modules xử lý của admin (backend)
+	+> Tiếp tiếp là thư mục autoload và file autoload.php nằm trong file autoload
+		+> File này để gọi các file xử lý chung mà tất cả các file đều gọi! hơi khó hiểu chút nhưng khi nào đi vào thực tế mn sẽ hiểu ngay
+		+ Thư mục layouts
+
+	----
+	Vào thư mục admin mn cung tạo y hêt như vậy
+	+ Thư mục modules thư mục này sẽ chứa các modules mà chúng ta quản lý ví dụ như quản lý thành viên, sản phẩm, vvv .. đây bạn nhìn sang sidebar sẽ thấy rõ hơn nhé
+	+ Tiếp đến là thư mục libraries
+		+ Thư mục này mình sẽ tạo các file xử lý như
+			+ Function
+			+ Database
+=> Tổng kết
+thế là mình đã làm xong khung của website rồi nhé
