@@ -67,8 +67,8 @@
 			$sql .= $set . $where;
 
 			// _debug($sql);die;
-			mysqli_query($this->link,$sql) or die("Lỗi query Update ----" .mysqli_error($this->link));
-			return mysqli_insert_id($this->link);
+			return mysqli_query($this->link,$sql) or die("Lỗi query Update ----" .mysqli_error($this->link));
+			// return mysqli_insert_id($this->link);
 		}
 
 		public function updateview($sql){
@@ -130,8 +130,9 @@
 			return mysqli_fetch_assoc($result);
 		
 		}	
-		public function fetchALLMuti($table,$query, $id){
-			$sql = "SELECT * FROM {$table} WHERE  {$query} {$id}";
+
+		public function getOrderDetail ($table,$select,$query,$id){
+			$sql = "SELECT {$select} FROM {$table} WHERE  {$query} {$id}";
 			$result = mysqli_query($this->link, $sql) or die ("Lỗi truy vấn fetchID ---" .mysqli_error($this->link));
 			$data = [];
 			if ($result) {
@@ -141,6 +142,19 @@
 				}
 			}
 			return $data;
+		}
+		public function fetchALLMuti($table,$query, $id){
+			$sql = "SELECT * FROM {$table} WHERE  {$query} {$id}";
+			return $sql;
+			// $result = mysqli_query($this->link, $sql) or die ("Lỗi truy vấn fetchID ---" .mysqli_error($this->link));
+			// $data = [];
+			// if ($result) {
+			// 	// code...
+			// 	while ($num = mysqli_fetch_assoc($result)){
+			// 		$data[] = $num;
+			// 	}
+			// }
+			// return $data;
 		}	
 
 
@@ -160,7 +174,7 @@
 		}
 
 		public function fetchAll($table){
-			$sql = "SELECT * FROM {$table} WHERE 1";
+			$sql = "SELECT * FROM {$table} WHERE 1 order by id desc";
 			$result = mysqli_query($this->link,$sql) or die ("Lỗi truy vấn fetchAll ---" .mysqli_error($this->link));
 			$data = [];
 			if ($result) {

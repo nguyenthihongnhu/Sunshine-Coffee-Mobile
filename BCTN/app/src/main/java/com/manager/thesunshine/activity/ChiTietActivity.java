@@ -62,7 +62,7 @@ public class ChiTietActivity extends AppCompatActivity {
                 }
             }
             if(flag == false){
-                long gia = Long.parseLong(sanPhamMoi.getGiasp()) * soluong;
+                long gia = Long.parseLong(sanPhamMoi.getGiasp());
                 GioHang gioHang = new GioHang();
                 gioHang.setGiasp(gia);
                 gioHang.setSoluong(soluong);
@@ -74,7 +74,7 @@ public class ChiTietActivity extends AppCompatActivity {
 
         }else{
             int soluong = Integer.parseInt(spinner.getSelectedItem().toString());
-            long gia = Long.parseLong(sanPhamMoi.getGiasp().trim()) * soluong;
+            long gia = Long.parseLong(sanPhamMoi.getGiasp().trim()); /* * soluong; */
             GioHang gioHang =  new GioHang();
             gioHang.setGiasp(gia);
             gioHang.setSoluong(soluong);

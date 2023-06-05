@@ -49,7 +49,7 @@
 
 
                     <div class="card shadow mb-4">
-    
+    <div><a href="add.php" class="btn btn-warning float-right mt-3 mr-4 w-25">Thêm Sản Phẩm Mới</a></li></div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
@@ -83,7 +83,6 @@
                                             </td>
                                             
                                             <td style="vertical-align: middle;">
-                                                <a href="add.php" class="btn btn-success">Thêm</a></li>
                                                  <a  class="btn btn-xs btn-info"
                                                  href="edit.php?id=<?php echo $item['id'] ?>"></i> Sửa</a>
                                                 <a class="btn btn-xs btn-danger" href="delete.php?id=<?php echo $item['id'] ?>"></i> Xóa</a>

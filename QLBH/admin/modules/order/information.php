@@ -5,10 +5,16 @@
     $id = intval(getInput('id'));
     // _dubug($id);
     $Information =  $db->fetchIDMuti("donhang, chitietdonhang, sanphammoi, user",
-     "sanphammoi.id = chitietdonhang.idsp and donhang.id = chitietdonhang.iddonhang and donhang.iduser=user.id and donhang.id =", $id );
-    $TableInformation =  $db->fetchALLMuti("donhang, chitietdonhang, sanphammoi, user",
-     " sanphammoi.id = chitietdonhang.idsp and donhang.id = chitietdonhang.iddonhang and donhang.iduser=user.id and donhang.id = ", $id );
+     "sanphammoi.id = chitietdonhang.idsanpham and donhang.id = chitietdonhang.iddonhang and donhang.iduser=user.id and donhang.id = ", $id );
+    
+    $TableInformation =  $db->getOrderDetail(
+        "donhang a, chitietdonhang b, sanphammoi c, user d",
+        "c.id, c.tensp, c.hinhanh, b.soluong, b.gia, a.ngaytao, a.diachi, a.tongtien, a.home",
+        "c.id = b.idsanpham and a.id = b.iddonhang and a.iduser=d.id and a.id = ", $id );
 
+    // echo '<pre>';
+    // var_dump($TableInformation);
+    // echo '</pre>';
 ?>
 
 
@@ -77,7 +83,7 @@
                                         <tr>
 
                                             <td style="text-align: center;  vertical-align: middle;"><?php echo $stt ?></td>
-                                             <td style="text-align: center; vertical-align: middle;"><?php echo $item['idsp'] ?></td>
+                                            <td style="text-align: center; vertical-align: middle;"><?php echo $item['id'] ?></td>
 
                                             <td style="text-align: center;  vertical-align: middle;"><?php echo $item['tensp'] ?></td>
                                             <td style="text-align: center;  vertical-align: middle;">
@@ -86,13 +92,14 @@
                                             <td style="text-align: center;  vertical-align: middle;"><?php echo $item['ngaytao'] ?></td>
                                             <td style="text-align: center;  vertical-align: middle;"><?php echo $item['diachi'] ?></td>
                                             <td style="text-align: center;  vertical-align: middle;"><?php echo $item['soluong'] ?></td>
-                                            <td style="text-align: center;  vertical-align: middle;"><?php echo $item['giasp'] ?></td>
+                                            <td style="text-align: center;  vertical-align: middle;"><?php echo $item['gia'] ?></td>
                                            
                                             <td style="text-align: center; vertical-align: middle;"><?php echo currency_format($item['tongtien'],'') ?></td>
                                              <td style="text-align: center; vertical-align: middle;">
-                                                <a href="home.php?id=<?php echo $item['id'] ?>" class="btn btn-xs <?php  echo $item['home'] == 1 ? 'btn btn-success' : 'btn btn-danger' ?>">
-                                                    <?php echo $item['home'] ==  1 ? 'Đang giao' : 'Đã giao' ?>
-                                                </a>
+                                                <button class="btn btn-xs <?php echo $item['home'] == '1' ? 'btn btn-success' : 'btn btn-danger' ?>"><?php echo $item['home'] ==  '1' ? 'Đang giao' : 'Đã giao' ?></button>
+                                                <!-- <a href="home.php?id=<?php echo $item['id'] ?>" class="btn btn-xs <?php  echo $item['home'] == '1' ? 'btn btn-success' : 'btn btn-danger' ?>">
+                                                    
+                                                </a> -->
                                             </td>
                                             
                                             

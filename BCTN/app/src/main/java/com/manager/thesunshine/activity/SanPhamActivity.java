@@ -33,7 +33,7 @@ public class SanPhamActivity extends AppCompatActivity {
     CompositeDisposable compositeDisposable =  new CompositeDisposable();
     int page = 1;
     int loai;
-    String xe;
+    String title;
     DienThoaiAdapter adapterDt;
     List<SanPhamMoi> sanPhamMoiList;
     LinearLayoutManager linearLayoutManager;
@@ -46,7 +46,7 @@ public class SanPhamActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sanpham);
 
         loai = getIntent().getIntExtra("loai",1);
-//        xe = getIntent().getStringExtra("xe");
+        title = getIntent().getStringExtra("title");
         AnhXa();
         ActionToolBar();
         getData(page);
@@ -131,10 +131,10 @@ public class SanPhamActivity extends AppCompatActivity {
     private void ActionToolBar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setTitle(xe);
+        toolbar.setTitle(title);
         toolbar.getTitle().toString();
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
+                @Override
             public void onClick(View v) {
                 finish();
             }
@@ -147,6 +147,7 @@ public class SanPhamActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         recyclerView = findViewById(R.id.recyclerview_dt);
         linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         sanPhamMoiList = new ArrayList<>();

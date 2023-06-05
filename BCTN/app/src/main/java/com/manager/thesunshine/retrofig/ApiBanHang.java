@@ -27,7 +27,7 @@ public interface ApiBanHang {
             @Field("loai") int loai
     );
 
-    @POST("dangky.php")
+    @POST("dangki.php")
     @FormUrlEncoded
     Observable<UserModel> dangKi(
             @Field("email") String email,

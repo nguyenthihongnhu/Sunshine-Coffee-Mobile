@@ -101,29 +101,29 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         Intent caphetruyenthong = new Intent(getApplicationContext(), SanPhamActivity.class);
 //                        dienthoai.putExtra("loai", mangloaisp.get(position).getId());
-                        caphetruyenthong.putExtra("loai", 1);
-//                        caphetruyenthong.putExtra("loaisp", "Cà Phê Truyền Thống");
+                        caphetruyenthong.putExtra("loai", position);
+                        caphetruyenthong.putExtra("title", "Cà Phê Truyền Thống");
                         startActivity(caphetruyenthong);
                         break;
                     case 2:
                         Intent CaPheEspresso = new Intent(getApplicationContext(), SanPhamActivity.class);
 //                        dienthoai.putExtra("loai", mangloaisp.get(position).getId());
-                        CaPheEspresso.putExtra("loai", 2);
-//                        CaPheEspresso.putExtra("loaisp", "Cà Phê Espresso");
+                        CaPheEspresso.putExtra("loai", position);
+                        CaPheEspresso.putExtra("title", "Cà Phê Espresso");
                         startActivity(CaPheEspresso);
                         break;
                     case 3:
                         Intent phindi = new Intent(getApplicationContext(), SanPhamActivity.class);
 //                        dienthoai.putExtra("loai", mangloaisp.get(position).getId());
-                        phindi.putExtra("loai", 3);
-//                        phindi.putExtra("loaisp", "PhinDi");
+                        phindi.putExtra("loai", position);
+                        phindi.putExtra("title", "PhinDi");
                         startActivity(phindi);
                         break;
                     case 4:
                         Intent freeze = new Intent(getApplicationContext(), SanPhamActivity.class);
 //                        dienthoai.putExtra("loai", mangloaisp.get(position).getId());
-                        freeze.putExtra("loai", 4);
-//                        freeze.putExtra("loaisp", "Freeze");
+                        freeze.putExtra("loai", position);
+                        freeze.putExtra("title", "Freeze");
                         startActivity(freeze);
                         break;
                     case 5:

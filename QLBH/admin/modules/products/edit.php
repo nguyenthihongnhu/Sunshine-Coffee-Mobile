@@ -14,7 +14,7 @@
     {
         
         $data = [
-                "id_loai" => postInput('inputIdsp'),
+                "loai" => postInput('inputIdsp'),
                 "tensp" => postInput('inputTensp'),
                 "giasp" => to_slug_tien_te(postInput('inputGiasp')),
                 "soluong" => postInput('inputSoluong'),
@@ -128,15 +128,15 @@
                              <form action=""  method="POST" enctype="multipart/from-data">
 
                                
-                                <div class="form-group row">
+                                <!-- <div class="form-group row">
                                     <label for="inputIdsp" class="col-sm-2 col-form-label">Loại sản phẩm</label>
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="inputIdsp" placeholder="Loại sản phẩm" name="inputIdsp" value="<?php echo $EditProducts['id_loai'] ?>">
+                                        <input type="text" class="form-control" id="inputIdsp" placeholder="Loại sản phẩm" name="inputIdsp" value="<?= $EditProducts['loai'] ?>">
                                         <?php if (isset($error['inputIdsp'])): ?>
                                             <p class="text-danger"><?php echo $error['inputIdsp'] ?></p>
                                         <?php endif ?>  
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="form-group row">
                                     <label for="inputTensp" class="col-sm-2 col-form-label">Tên sản phẩm</label>
@@ -174,6 +174,28 @@
                                             <p class="text-danger"><?php echo $error['inputHinhanh'] ?></p>
                                         <?php endif ?>  
                                     </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="input-group mb-3 mt-3">
+                                        <label for="inputHinhanh" class="col-sm-2 col-form-label">Loại Sản Phẩm</label>
+                                        <select style="border-radius: .35rem; margin-left: 11px;" class="form-control" name="inputIdsp" id="inputIdsp">
+                                            <?php $res = $db->fetchsql('select * from loaisanpham where not (id = 0 or id = 5)');
+                                            foreach($res as $item) {
+                                            ?>
+                                                <option <?= $EditProducts['loai'] == $item['id'] ? 'selected' : '' ?> value="<?= $item['id'] ?>"><?= $item['loaisp']?></option>
+                                            <?php
+                                            } 
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <!-- <label for="inputIdsp" class="col-sm-2 col-form-label">Loại sản phẩm</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" id="inputIdsp" placeholder="Loại sản phẩm" name="inputIdsp">
+                                        <?php if (isset($error['inputIdsp'])): ?>
+                                            <p class="text-danger"><?php echo $error['inputIdsp'] ?></p>
+                                        <?php endif ?>  
+                                    </div> -->
                                 </div>
 
                                 <div class="form-group row">
